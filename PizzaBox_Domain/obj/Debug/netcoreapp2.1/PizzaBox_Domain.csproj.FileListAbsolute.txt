@@ -12,3 +12,17 @@ C:\Users\iakav\source\PizzaBox_Domain\obj\Debug\netcoreapp2.1\PizzaBox_Domain.pd
 C:\Users\iakav\source\PizzaBox_Domain\bin\Debug\netcoreapp2.1\PizzaBox_Data.dll
 C:\Users\iakav\source\PizzaBox_Domain\bin\Debug\netcoreapp2.1\PizzaBox_Data.pdb
 C:\Users\iakav\source\PizzaBox_Domain\obj\Debug\netcoreapp2.1\PizzaBox_Domain.csproj.CopyComplete
+C:\Revature\project0\Starkey_Patrick_Project0\PizzaBox_Domain\bin\Debug\netcoreapp2.1\PizzaBox_Domain.deps.json
+C:\Revature\project0\Starkey_Patrick_Project0\PizzaBox_Domain\bin\Debug\netcoreapp2.1\PizzaBox_Domain.runtimeconfig.json
+C:\Revature\project0\Starkey_Patrick_Project0\PizzaBox_Domain\bin\Debug\netcoreapp2.1\PizzaBox_Domain.runtimeconfig.dev.json
+C:\Revature\project0\Starkey_Patrick_Project0\PizzaBox_Domain\bin\Debug\netcoreapp2.1\PizzaBox_Domain.dll
+C:\Revature\project0\Starkey_Patrick_Project0\PizzaBox_Domain\bin\Debug\netcoreapp2.1\PizzaBox_Domain.pdb
+C:\Revature\project0\Starkey_Patrick_Project0\PizzaBox_Domain\bin\Debug\netcoreapp2.1\PizzaBox_Data.dll
+C:\Revature\project0\Starkey_Patrick_Project0\PizzaBox_Domain\bin\Debug\netcoreapp2.1\PizzaBox_Data.pdb
+C:\Revature\project0\Starkey_Patrick_Project0\PizzaBox_Domain\obj\Debug\netcoreapp2.1\PizzaBox_Domain.csprojAssemblyReference.cache
+C:\Revature\project0\Starkey_Patrick_Project0\PizzaBox_Domain\obj\Debug\netcoreapp2.1\PizzaBox_Domain.csproj.CoreCompileInputs.cache
+C:\Revature\project0\Starkey_Patrick_Project0\PizzaBox_Domain\obj\Debug\netcoreapp2.1\PizzaBox_Domain.AssemblyInfoInputs.cache
+C:\Revature\project0\Starkey_Patrick_Project0\PizzaBox_Domain\obj\Debug\netcoreapp2.1\PizzaBox_Domain.AssemblyInfo.cs
+C:\Revature\project0\Starkey_Patrick_Project0\PizzaBox_Domain\obj\Debug\netcoreapp2.1\PizzaBox_Domain.csproj.CopyComplete
+C:\Revature\project0\Starkey_Patrick_Project0\PizzaBox_Domain\obj\Debug\netcoreapp2.1\PizzaBox_Domain.dll
+C:\Revature\project0\Starkey_Patrick_Project0\PizzaBox_Domain\obj\Debug\netcoreapp2.1\PizzaBox_Domain.pdb

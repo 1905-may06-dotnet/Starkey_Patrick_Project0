@@ -66,10 +66,9 @@ namespace PizzaBox.Client
         public static string crust;
         public static string size;
         List<string> toppings = new List<string>();
-        public orderPizza(string name,int storeId)
+        public orderPizza()
         {
-            string userName = name;
-            int storeid = storeId;
+
         }
 
         public decimal CreationUI(string userName, int storeId)
@@ -252,11 +251,11 @@ namespace PizzaBox.Client
         }
 
     }
-    internal class MainMenu
+    public class MainMenu
     {
-        MainMenu()
+        public MainMenu()
         { }
-        int chooseStores()
+        public int chooseStores()
         {
             Console.WriteLine("Choose which store typing coresponding number.");
             Console.WriteLine("1.1901 Center");
@@ -266,7 +265,7 @@ namespace PizzaBox.Client
 
             return store;
         }
-        void mainmenu(string userid, int storeId)
+        public void mainmenu(string userid, int storeId)
         {
             bool leave = false;
             while (leave==false) {
@@ -279,7 +278,7 @@ namespace PizzaBox.Client
                 switch (c)
                 {
                     case 1:
-                        orderPizza Order = new orderPizza(userid, storeId);
+                        orderPizza Order = new orderPizza();
                         Order.totalOrder(userid, storeId);
                         break;
                     case 2:
@@ -306,12 +305,27 @@ namespace PizzaBox.Client
 
         class Program
         {
+         public static string getUsername()
+        {
+            UserLogin starting = new UserLogin();
+            string userid = starting.firstUI();
+            return userid;
+
+        }
             static void Main(string[] args)
             {
+            UserLogin starting = new UserLogin();
+
                 try
                 {
-                    UserLogin starting = new UserLogin();
-                    starting.firstUI();
+
+                string user = getUsername();
+                
+                orderPizza temp = new orderPizza();
+                MainMenu mainmenu = new MainMenu();
+                int store = mainmenu.chooseStores();
+                mainmenu.mainmenu(user, store);
+
 
                 }
                 catch (System.InvalidOperationException)
@@ -320,7 +334,7 @@ namespace PizzaBox.Client
                     throw;
 
                 }
-
+                
 
 
             }
