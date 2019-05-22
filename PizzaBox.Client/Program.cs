@@ -77,7 +77,7 @@ namespace PizzaBox.Client
             Crud db = new Crud();
             int toppingLimit = 5;//max limit on toppings
             Boolean contin = false;
-            while (contin == true)
+            while (contin == false)
             {
                 if (size.ToLower() == "small")
                 {
@@ -193,12 +193,13 @@ namespace PizzaBox.Client
 
                 if (totalCost <= 5000 - 20)
                 {
+                    CreationUI(userName, storeId);
                     totalCost = totalCost + CreationUI(userName, storeId);
                     Console.WriteLine($"Total is now ${totalCost}. Would you like to order one more?y/n");
                     string temp = Console.ReadLine();
-                    if (temp == "n")
+                    if (temp == "y")
                     {
-                        i = 101;
+                        CreationUI(userName, storeId);
                     }
                 }
                 else
@@ -218,11 +219,12 @@ namespace PizzaBox.Client
             string User = user;
         }
         public void AdminUI(string user,int storeid)
-        {
+        { 
             Console.WriteLine($"Welcome admin {user}.");
             Console.WriteLine("1.Look at store inventory");
-            int adinv=Console.Read();
-            if (adinv==1)
+            string adinv = "1";
+            adinv=Console.ReadLine();
+            if (adinv=="1")
             {
                 //open inventory for that store
                 var temp = inventory(storeid);
@@ -253,12 +255,13 @@ namespace PizzaBox.Client
     }
     public class MainMenu
     {
+        
         public MainMenu()
         { }
         public int chooseStores()
         {
             Console.WriteLine("Choose which store typing coresponding number.");
-            Console.WriteLine("1.1901 Center");
+            Console.WriteLine("1.1901 Center St.");
             Console.WriteLine("2. 24B  Baker St.");
             Console.WriteLine("3. 100000 Houston Ave");
             int store = Console.Read();
@@ -267,36 +270,59 @@ namespace PizzaBox.Client
         }
         public void mainmenu(string userid, int storeId)
         {
-            bool leave = false;
-            while (leave==false) {
+            string c="";
+             bool leave = false;
+            while (leave == false) {
                 Console.WriteLine("-Main Menu-");
                 Console.WriteLine("1. Order Pizza");
                 Console.WriteLine("2. Order History");
-                Console.WriteLine("3.Exit");
-                Console.WriteLine("4.Admin");
-                int c = Console.Read();
-                switch (c)
-                {
-                    case 1:
-                        orderPizza Order = new orderPizza();
-                        Order.totalOrder(userid, storeId);
-                        break;
-                    case 2:
-                        History lastPizza = new History();
-                        lastPizza.getHistory(userid);
-                        break;
-                    case 3:
-                        Admin usingAdmin = new Admin(userid, storeId);
-                        usingAdmin.AdminUI(userid, storeId);
-                        break;
-                    case 4:
-                        leave = true;
-                        break;
+                Console.WriteLine("3.Admin");
+                Console.WriteLine("4.Exit");
+                c = Console.ReadLine();
 
-                    default:
-                        Console.WriteLine("Please type one of the numbers.");
-                        break;
+
+                if (c == "1")
+                {
+                    orderPizza Order = new orderPizza();
+                    Order.CreationUI(userid, storeId);
+                    Order.totalOrder(userid, storeId);
+
                 }
+
+                else if (c == "2")
+                {
+                    History lastPizza = new History();
+                    var temp=lastPizza.getHistory(userid);
+                    try
+                    {
+
+                        foreach(var i in temp.ToArray())
+                        {
+                            Console.WriteLine(temp);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("error");
+                    }
+                }
+                else if (c == "3")
+                {
+
+                    Admin usingAdmin = new Admin(userid, storeId);
+                    usingAdmin.AdminUI(userid, storeId);
+                }
+                else if (c == "4")
+                {
+                    leave = true;
+                }
+
+                else
+                {
+                    Console.WriteLine("Please type one of the numbers.");
+                }
+                
+                
             }
         }
     }
@@ -322,9 +348,9 @@ namespace PizzaBox.Client
                 string user = getUsername();
                 
                 orderPizza temp = new orderPizza();
-                MainMenu mainmenu = new MainMenu();
-                int store = mainmenu.chooseStores();
-                mainmenu.mainmenu(user, store);
+                MainMenu mainMenu = new MainMenu();
+                int store =mainMenu.chooseStores();
+                mainMenu.mainmenu(user, store);
 
 
                 }
