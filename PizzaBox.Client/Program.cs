@@ -5,7 +5,7 @@ using PizzaBox_Domain;
 using PizzaBox_Data;
 namespace PizzaBox.Client
 {
-    
+
     internal class UserLogin
     {
         public static string userName;
@@ -63,8 +63,8 @@ namespace PizzaBox.Client
     public class orderPizza
     {
 
-        public static string crust;
-        public static string size;
+        //public static string crust;
+        //public static string size=;
         List<string> toppings = new List<string>();
         public orderPizza()
         {
@@ -73,12 +73,15 @@ namespace PizzaBox.Client
 
         public decimal CreationUI(string userName, int storeId)
         {
+            string crust = "";
+            string size = "";
             PizzaOrder gettingPizza = new PizzaOrder();
             Crud db = new Crud();
             int toppingLimit = 5;//max limit on toppings
             Boolean contin = false;
             while (contin == false)
             {
+                size = Console.ReadLine();
                 if (size.ToLower() == "small")
                 {
 
@@ -97,7 +100,7 @@ namespace PizzaBox.Client
                     Console.WriteLine("Please try again.");
                 }
                 Console.WriteLine("What crust do you wish?(Pan,regular,thin)");
-                string crust = Console.ReadLine();
+                crust = Console.ReadLine();
                 while (contin == true)
                 {
                     if (size.ToLower() == "pan")
@@ -119,6 +122,11 @@ namespace PizzaBox.Client
                         Console.WriteLine("please try again.");
 
                     }
+                    string topping1 = "";
+                    string topping2 = "";
+                    string topping3 = "";
+                    string topping4 = "";
+                    string topping5 = "";
                     Console.WriteLine("Would you like ham and pinapple pizza?y/n");
                     string temp = Console.ReadLine();
                     if (temp == "y")
@@ -129,7 +137,7 @@ namespace PizzaBox.Client
                         toppings.Add("pinapple");
 
 
-                        bool isItdone = gettingPizza.pizzaAdd<string, string, string>(userName, size, crust, toppings, storeId);
+                        bool isItdone = gettingPizza.pizzaAdd<string,string,string>(userName, size, crust, topping1, topping2, topping3, topping4, topping5, storeId);
                         return gettingPizza.Cost(size, 2);
 
                     }
@@ -137,7 +145,7 @@ namespace PizzaBox.Client
                     {
 
                         Console.WriteLine("What pizza size do you wish order?");
-                        string size = Console.ReadLine();
+                        size = Console.ReadLine();
 
 
                         for (int i = 1; i < toppingLimit; i++)
@@ -172,9 +180,9 @@ namespace PizzaBox.Client
                             Console.WriteLine(i);
                         }
                         Console.WriteLine("y/n");
-                        decimal price;
+                        decimal price=0;
                         price = gettingPizza.Cost(size, toppings.Count);
-                        gettingPizza.pizzaAdd<string, string, string>(userName, size, crust, toppings, storeId);
+                        gettingPizza.pizzaAdd<string, string, string>(userName, size, crust, topping1, topping2, topping3, topping4, topping5, storeId);
                         //return cost
                         return price;
 
@@ -189,7 +197,8 @@ namespace PizzaBox.Client
         public void totalOrder(string userName, int storeId)
         {
             decimal totalCost = 0;
-            for (int i=1;i<100;++i) {
+            for (int i = 1; i < 100; ++i)
+            {
 
                 if (totalCost <= 5000 - 20)
                 {
@@ -214,17 +223,17 @@ namespace PizzaBox.Client
     public class Admin
     {
 
-        public Admin(string user,int storeid)
+        public Admin(string user, int storeid)
         {
             string User = user;
         }
-        public void AdminUI(string user,int storeid)
-        { 
+        public void AdminUI(string user, int storeid)
+        {
             Console.WriteLine($"Welcome admin {user}.");
             Console.WriteLine("1.Look at store inventory");
             string adinv = "1";
-            adinv=Console.ReadLine();
-            if (adinv=="1")
+            adinv = Console.ReadLine();
+            if (adinv == "1")
             {
                 //open inventory for that store
                 var temp = inventory(storeid);
@@ -244,18 +253,18 @@ namespace PizzaBox.Client
             }
 
         }
-        
+
         Inventory inventory(int storeid)
         {
             Pizzastore a = new Pizzastore();
             return a.inven(storeid);
-            
+
         }
 
     }
     public class MainMenu
     {
-        
+
         public MainMenu()
         { }
         public int chooseStores()
@@ -270,9 +279,10 @@ namespace PizzaBox.Client
         }
         public void mainmenu(string userid, int storeId)
         {
-            string c="";
-             bool leave = false;
-            while (leave == false) {
+            string c = "";
+            bool leave = false;
+            while (leave == false)
+            {
                 Console.WriteLine("-Main Menu-");
                 Console.WriteLine("1. Order Pizza");
                 Console.WriteLine("2. Order History");
@@ -292,11 +302,11 @@ namespace PizzaBox.Client
                 else if (c == "2")
                 {
                     History lastPizza = new History();
-                    var temp=lastPizza.getHistory(userid);
+                    var temp = lastPizza.getHistory(userid);
                     try
                     {
 
-                        foreach(var i in temp.ToArray())
+                        foreach (var i in temp.ToArray())
                         {
                             Console.WriteLine(temp);
                         }
@@ -321,50 +331,50 @@ namespace PizzaBox.Client
                 {
                     Console.WriteLine("Please type one of the numbers.");
                 }
-                
-                
+
+
             }
         }
     }
 
 
 
-        class Program
-        {
-         public static string getUsername()
+    class Program
+    {
+        public static string getUsername()
         {
             UserLogin starting = new UserLogin();
             string userid = starting.firstUI();
             return userid;
 
         }
-            static void Main(string[] args)
-            {
+        static void Main(string[] args)
+        {
             UserLogin starting = new UserLogin();
 
-                try
-                {
+            try
+            {
 
                 string user = getUsername();
-                
+
                 orderPizza temp = new orderPizza();
                 MainMenu mainMenu = new MainMenu();
-                int store =mainMenu.chooseStores();
+                int store = mainMenu.chooseStores();
                 mainMenu.mainmenu(user, store);
 
 
-                }
-                catch (System.InvalidOperationException)
-                {
-                    Console.WriteLine("error");
-                    throw;
-
-                }
-                
-
+            }
+            catch (System.InvalidOperationException)
+            {
+                Console.WriteLine("error");
+                throw;
 
             }
+
+
+
         }
+    }
 }
-    
+
 

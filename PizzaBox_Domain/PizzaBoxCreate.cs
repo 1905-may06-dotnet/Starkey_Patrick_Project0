@@ -13,8 +13,7 @@ namespace PizzaBox_Domain
     public class PizzaOrder
     {
         //Stack<P> holding= new Stack<P>;
-        static string crust;
-        static string size;
+
         List<string> toppings = new List<string>();
         public PizzaOrder()
         {
@@ -147,11 +146,11 @@ namespace PizzaBox_Domain
         ////}
 
 
-        public Boolean pizzaAdd<S, C, T>(string id, S size, C crust, List<T> top, int storId)
+        public Boolean pizzaAdd<S, C, T>(string id, S size, C crust, string topping1,string topping2,string topping3,string topping4,string topping5, int storId)
         {
-            var newT = top.ToArray();
+           // var newT = top.ToArray();
             Crud db = new Crud();
-            Pizzahistory temp = new Pizzahistory(id, size.ToString(), crust.ToString(), toppings, storId);
+            Pizzahistory temp = new Pizzahistory(id, size.ToString(), crust.ToString(), topping1, topping2, topping3, topping4, topping5, storId);
 
             db.PizzaAdd(temp);
 

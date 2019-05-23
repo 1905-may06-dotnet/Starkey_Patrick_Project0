@@ -22,6 +22,7 @@ namespace PizzaBox_Data.Model
             Topping5 = t5;
             Orderdate = DateTime.Now;
             StoreId = storeid;
+            
 
 
         }
@@ -30,11 +31,11 @@ namespace PizzaBox_Data.Model
             UserId = id;
             Size = size;
             Crust = crust;
-            Topping1 = toppings.ElementAt(0).ToString();
-            Topping2 = toppings.ElementAt(1).ToString();
-            Topping3 = toppings.ElementAt(2).ToString();
-            Topping4 = toppings.ElementAt(3).ToString();
-            Topping5 = toppings.ElementAt(4).ToString();
+            Topping1 = toppings.ElementAt(1).ToString();//System.ArgumentOutOfRangeException
+            Topping2 = toppings.ElementAt(2).ToString();
+            Topping3 = toppings.ElementAt(3).ToString();
+            Topping4 = toppings.ElementAt(4).ToString();
+            Topping5 = toppings.ElementAt(5).ToString();
             Orderdate = DateTime.Now;
             StoreId = storeid;
 
