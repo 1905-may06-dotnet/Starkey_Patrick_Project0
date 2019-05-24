@@ -26,20 +26,20 @@ namespace PizzaBox_Data.Model
 
 
         }
-        public Pizzahistory(string id,string size,string crust,List<string> toppings,int storeid)
-        {
-            UserId = id;
-            Size = size;
-            Crust = crust;
-            Topping1 = toppings.ElementAt(1).ToString();//System.ArgumentOutOfRangeException
-            Topping2 = toppings.ElementAt(2).ToString();
-            Topping3 = toppings.ElementAt(3).ToString();
-            Topping4 = toppings.ElementAt(4).ToString();
-            Topping5 = toppings.ElementAt(5).ToString();
-            Orderdate = DateTime.Now;
-            StoreId = storeid;
+        //public Pizzahistory(string id,string size,string crust,List<string> toppings,int storeid)
+        //{
+        //    UserId = id;
+        //    Size = size;
+        //    Crust = crust;
+        //    Topping1 = toppings.ElementAt(1).ToString();//System.ArgumentOutOfRangeException
+        //    Topping2 = toppings.ElementAt(2).ToString();
+        //    Topping3 = toppings.ElementAt(3).ToString();
+        //    Topping4 = toppings.ElementAt(4).ToString();
+        //    Topping5 = toppings.ElementAt(5).ToString();
+        //    Orderdate = DateTime.Now;
+        //    StoreId = storeid;
 
-        }
+        //}
 
 
 

@@ -264,16 +264,17 @@ namespace PizzaBox.Client
     }
     public class MainMenu
     {
-
+        
         public MainMenu()
         { }
         public int chooseStores()
         {
+            int store = 0;
             Console.WriteLine("Choose which store typing coresponding number.");
             Console.WriteLine("1.1901 Center St.");
             Console.WriteLine("2. 24B  Baker St.");
             Console.WriteLine("3. 100000 Houston Ave");
-            int store = Console.Read();
+            store = Convert.ToInt32( Console.ReadLine());
 
             return store;
         }
@@ -308,7 +309,13 @@ namespace PizzaBox.Client
 
                         foreach (var i in temp.ToArray())
                         {
-                            Console.WriteLine(temp);
+                            Console.WriteLine($"a{i.Size} {i.Crust} crust Pizza with");
+                            Console.WriteLine(i.Topping1);
+                            Console.WriteLine(i.Topping2);
+                            Console.WriteLine(i.Topping3);
+                            Console.WriteLine(i.Topping4);
+                            Console.WriteLine(i.Topping5);
+
                         }
                     }
                     catch (Exception)
