@@ -60,14 +60,19 @@ namespace PizzaBox_Data
             return pizzastocreate;
 
         }
+        public void Padd(PizzasToCreate  p)
+        {
+            PizzaBoxIn.Instance.PizzasToCreate.Add(p);
+            PizzaBoxIn.Instance.SaveChanges();
 
+        }
 
         public void PizzaAdd(Pizzahistory p)
         {
 
             PizzaBoxIn.Instance.Pizzahistory.Add(p);
             PizzaBoxIn.Instance.SaveChanges();
-            
+
         }
 
         public List<Pizzahistory> FindLastPizzas(string userId)

@@ -81,6 +81,7 @@ namespace PizzaBox.Client
             Boolean contin = false;
             while (contin == false)
             {
+                Console.WriteLine("what size do you wish to have?");
                 size = Console.ReadLine();
                 if (size.ToLower() == "small")
                 {
@@ -99,6 +100,7 @@ namespace PizzaBox.Client
                 {
                     Console.WriteLine("Please try again.");
                 }
+            }
                 Console.WriteLine("What crust do you wish?(Pan,regular,thin)");
                 crust = Console.ReadLine();
                 while (contin == true)
@@ -133,8 +135,8 @@ namespace PizzaBox.Client
                     {
 
                         //add ham and pinapple
-                        toppings.Add("ham");
-                        toppings.Add("pinapple");
+                        topping1=("ham");
+                        topping2=("pinapple");
 
 
                         bool isItdone = gettingPizza.pizzaAdd<string,string,string>(userName, size, crust, topping1, topping2, topping3, topping4, topping5, storeId);
@@ -182,6 +184,11 @@ namespace PizzaBox.Client
                         Console.WriteLine("y/n");
                         decimal price=0;
                         price = gettingPizza.Cost(size, toppings.Count);
+                        topping1 = toppings[0];
+                        topping2 = toppings[1];
+                        topping3 = toppings[2];
+                        topping4 = toppings[3];
+                        topping5 = toppings[4];
                         gettingPizza.pizzaAdd<string, string, string>(userName, size, crust, topping1, topping2, topping3, topping4, topping5, storeId);
                         //return cost
                         return price;
@@ -189,9 +196,9 @@ namespace PizzaBox.Client
 
                     }
                 }
-
-            }
             return 0;
+            
+            
         }
 
         public void totalOrder(string userName, int storeId)
@@ -202,13 +209,13 @@ namespace PizzaBox.Client
 
                 if (totalCost <= 5000 - 20)
                 {
-                    CreationUI(userName, storeId);
+                    
                     totalCost = totalCost + CreationUI(userName, storeId);
                     Console.WriteLine($"Total is now ${totalCost}. Would you like to order one more?y/n");
                     string temp = Console.ReadLine();
                     if (temp == "y")
                     {
-                        CreationUI(userName, storeId);
+                        break;
                     }
                 }
                 else
@@ -295,7 +302,7 @@ namespace PizzaBox.Client
                 if (c == "1")
                 {
                     orderPizza Order = new orderPizza();
-                    Order.CreationUI(userid, storeId);
+                    //Order.CreationUI(userid, storeId);
                     Order.totalOrder(userid, storeId);
 
                 }
